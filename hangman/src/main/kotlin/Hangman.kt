@@ -14,16 +14,17 @@ fun main() {
 
 fun setupGame() {
     word = words.shuffled().first().toUpperCase()
+    println(word)
 
     //adding as many "_" as the word is long.
-    for (i in word.indices) {
+    for (i in 1..word.length) {
         guesses.add('_')
     }
 
     var gameOver = false
 
     do {
-        println(printGameStatus())
+        printGameStatus()
         println("Please enter a letter:")
         val input = readln()
 
@@ -39,7 +40,7 @@ fun setupGame() {
                 }
 
                 //if we have no more '_', then the game is over
-                if (!guesses.contains('_')) gameOver = true
+                if (guesses.contains('_').not()) gameOver = true
             } else {
                 println("Sorry, that's not part of the word.")
                 remainingGuesses--
@@ -53,8 +54,8 @@ fun setupGame() {
         printGameStatus()
         println("Sorry, you lost. The word was: \n$word")
     } else {
+        printGameStatus()
         println("\nCongratulations, you won!")
-        println("The word was: \n$word")
     }
 }
 
