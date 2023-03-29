@@ -1,3 +1,5 @@
+import java.util.*
+
 val words = listOf(
     "apple", "laptop", "store", "style", "drawing", "house", "clock", "tower", "show", "playstation",
     "table", "flower", "lizard", "sofa", "cupboard", "tomato", "pillow", "star", "circle", "jellyfish"
@@ -13,8 +15,7 @@ fun main() {
 }
 
 fun setupGame() {
-    word = words.shuffled().first().toUpperCase()
-    println(word)
+    word = words.shuffled().first().uppercase(Locale.getDefault())
 
     //adding as many "_" as the word is long.
     for (i in 1..word.length) {
